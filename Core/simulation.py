@@ -1,4 +1,4 @@
-from body import SystemState
+from Core.body import SystemState
 
 class Simulation:
     def __init__ (self, state, dt, integrator):

@@ -1,5 +1,5 @@
 import numpy as np
-from forces import compute_forces
+from Core.forces import compute_forces
 
 
 def euler_step(state, dt):

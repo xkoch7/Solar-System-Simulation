@@ -1,8 +1,8 @@
-from core.body import SystemState
-from core.forces import compute_forces
-from core.integrators import euler_step, leapfrog_step
-from core.simulation import Simulation
-from analysis.diagnostics import total_energy
+from Core.body import SystemState
+from Core.forces import compute_forces
+from Core.integrators import euler_step, leapfrog_step
+from Core.simulation import Simulation
+from Analysis.diagnostics import total_energy
 
 # create two identical states — one for euler, one for leapfrog
 state_euler = SystemState.create(

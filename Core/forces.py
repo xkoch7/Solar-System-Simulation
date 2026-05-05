@@ -1,5 +1,5 @@
 import numpy as np
-from body import SystemState
+from Core.body import SystemState
 #constants
 G = 6.674e-11
 SOFTENING = 1e7
