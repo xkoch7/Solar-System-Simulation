@@ -40,3 +40,24 @@ def rk4_step(state, dt):
 
     state.position += (k1_position + 2*k2_position + 2*k3_position + k4_position) * dt/6
     state.velocity += (k1_velocity + 2*k2_velocity + 2*k3_velocity + k4_velocity) * dt/6
+# coefficients for yoshida step
+
+def yoshida_step(state, dt):
+    # coefficients for yoshida step
+    w1 = 1 / (2 - 2**(1/3))
+    w0 = -2**(1/3) / (2 - 2**(1/3))
+    c1 = c4 = w1 / 2
+    c2 = c3 = (w0 + w1) / 2
+    d1 = d3 = w1
+    d2 = w0
+    compute_forces(state)
+    state.velocity += c1 * state.acceleration * dt
+    state.position += d1 * state.velocity * dt
+    compute_forces(state)
+    state.velocity += c2 * state.acceleration * dt
+    state.position += d2 * state.velocity * dt
+    compute_forces(state)
+    state.velocity += c3 * state.acceleration * dt
+    state.position += d3 * state.velocity * dt
+    compute_forces(state)
+    state.velocity += c4 * state.acceleration * dt
